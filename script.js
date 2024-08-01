@@ -10,6 +10,12 @@ const calculate = () => {
 
     const mode = getMode(numbers);
     document.querySelector("#mode").textContent = mode;
+
+    const range = getRange(numbers);
+    document.querySelector("#range").textContent = range;
+
+    const variance = getVariance(numbers);
+    document.querySelector("#variance").textContent = variance;
 };
 
 //media
@@ -45,4 +51,6 @@ const getMode = (array) => {
 
     return mode.join(", ");
 };
+
+const getRange = (array) => (Math.max(...array) - Math.min(...array));
 
