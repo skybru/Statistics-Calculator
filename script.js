@@ -8,11 +8,14 @@ const calculate = () => {
     const median = getMedian(numbers);
     document.querySelector("#median").textContent = median;
 
-
+    const mode = getMode(numbers);
+    document.querySelector("#mode").textContent = mode;
 };
 
+//media
 const getMean = (array) => array.reduce((acc, el) => acc + el, 0) / array.length;
 
+//mediana
 const getMedian = (array) => {
     const sorted = array.sort((a, b) => a - b);
     if (sorted.length % 2 === 0) {
@@ -20,5 +23,10 @@ const getMedian = (array) => {
     } else {
       return sorted[Math.floor(sorted.length / 2)];
     }
+};
+
+//moda
+const getMode = (array) => {
+    
 };
 
