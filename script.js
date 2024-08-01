@@ -16,6 +16,9 @@ const calculate = () => {
 
     const variance = getVariance(numbers);
     document.querySelector("#variance").textContent = variance;
+
+    const deviation = getStandardDeviation(numbers);
+    document.querySelector("#standardDeviation").textContent = deviation;
 };
 
 //media
@@ -67,7 +70,13 @@ const getVariance = (array) => {
     const squared = difference ** 2;
     return acc + squared;
   }, 0) / array.length;
-  
+
   return variance;
+};
+
+//Your final calculation is the standard deviation, which is the square root of the variance.
+const getStandardDeviation = (array) => {
+  const variance = getVariance(array);
+  const standardDeviation = Math.pow(variance, 0.5); //testare se funziona uguale con 0.5
 };
 
