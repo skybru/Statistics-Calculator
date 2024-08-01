@@ -13,7 +13,7 @@ const calculate = () => {
 };
 
 //media
-const getMean = (array) => array.reduce((acc, el) => acc + el, 0) / array.length;
+const getMean = (array) => array.reduce((acc, item) => acc + el, 0) / array.length;
 
 //mediana
 const getMedian = (array) => {
@@ -27,6 +27,22 @@ const getMedian = (array) => {
 
 //moda
 const getMode = (array) => {
-    
+    const counts = {};
+    array.forEach(item => {
+      if (counts[item]) {
+        counts[item] += 1;
+      } else {
+        counts[item] = 1;
+      }
+    });
+
+    if (new Set(Object.values(counts)).size === 1) {
+      return null;
+    }
+
+    const highest = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+    const mode = Object.keys(counts).filter(item => counts[item] === counts[highest]);
+
+    return mode.join(", ");
 };
 
