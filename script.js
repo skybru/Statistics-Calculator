@@ -60,11 +60,6 @@ const getRange = (array) => (Math.max(...array) - Math.min(...array));
 
 //The variance of a series represents how much the data deviates from the mean, and can be used to determine how spread out the data are. The variance is calculated in a few steps.
 const getVariance = (array) => {
-  const mean = getMean(array);
-  const differences = array.map(item => item - mean);
-  const squaredDifferences = differences.map(item => item ** 2);
-  const sumSquaredDifferences = squaredDifferences.reduce((acc, item) => acc + item, 0);
-
   const variance = array.reduce((acc, item) => {
     const difference = item - mean;
     const squared = difference ** 2;
