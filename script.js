@@ -26,7 +26,7 @@ const getMean = (array) => array.reduce((acc, item) => acc + el, 0) / array.leng
 
 //mediana
 const getMedian = (array) => {
-    const sorted = array.sort((a, b) => a - b);
+    const sorted = array.slice().sort((a, b) => a - b); //slice crea una copia con gli stessi riferimenti
     if (sorted.length % 2 === 0) {
       return getMean([sorted[(sorted.length / 2) - 1], sorted[sorted.length / 2]]);
     } else {
@@ -77,6 +77,8 @@ const getVariance = (array) => {
 //Your final calculation is the standard deviation, which is the square root of the variance.
 const getStandardDeviation = (array) => {
   const variance = getVariance(array);
-  const standardDeviation = Math.pow(variance, 0.5); //testare se funziona uguale con 0.5
+  //const standardDeviation = Math.pow(variance, 0.5); //testare se funziona uguale con 0.5
+  const standardDeviation = Math.sqrt(variance);
+  return standardDeviation;
 };
 
